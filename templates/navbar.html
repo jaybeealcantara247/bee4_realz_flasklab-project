@@ -1,0 +1,84 @@
+<nav class="navbar">
+    <a href="/">Home</a>
+    <a href="/profile">Profile</a>
+    <a href="/contact">Contact</a>
+    
+    <!-- Works Dropdown Menu -->
+    <div class="dropdown">
+        <span class="dropbtn">Works ▼</span>
+        <div class="dropdown-content">
+            <a href="/works/touppercase">Uppercase Tool</a>
+            <a href="/works/circle">Circle Area Calculator</a>
+            <a href="/works/triangle">Triangle Area Calculator</a>
+            <a href="/works/linkedlist">Linked List Manager</a>
+        </div>
+    </div>
+</nav>
+
+<style>
+    /* Main Navigation Bar Styling */
+    .navbar {
+        background-color: #5c4a3d; /* Dark Brown Theme */
+        padding: 12px 25px;
+        display: flex;
+        gap: 20px;
+        align-items: center;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+
+    /* Navbar Links & Dropdown Button */
+    .navbar a, .dropbtn {
+        color: #fdfbf7;
+        text-decoration: none;
+        font-weight: bold;
+        font-size: 0.95em;
+        padding: 8px 12px;
+        border-radius: 5px;
+        transition: background 0.2s;
+    }
+
+    .navbar a:hover, .dropdown:hover .dropbtn {
+        background-color: #8c6d53; /* Lighter Warm Brown */
+    }
+
+    /* Dropdown Container */
+    .dropdown {
+        position: relative;
+        display: inline-block;
+        cursor: pointer;
+    }
+
+    /* Dropdown Content Box (Hidden by default) */
+    .dropdown-content {
+        display: none;
+        position: absolute;
+        background-color: #fdfbf7;
+        min-width: 210px;
+        box-shadow: 0px 8px 16px rgba(0,0,0,0.15);
+        z-index: 1000;
+        border-radius: 6px;
+        border: 1px solid #e6dec9;
+        top: 100%;
+        left: 0;
+        padding: 5px 0;
+    }
+
+    /* Links Inside the Dropdown */
+    .dropdown-content a {
+        color: #4a3b32;
+        padding: 10px 15px;
+        display: block;
+        text-align: left;
+        font-weight: normal;
+    }
+
+    .dropdown-content a:hover {
+        background-color: #f4ede2;
+        color: #2c221c;
+    }
+
+    /* Show the dropdown menu when hovering over the Works button */
+    .dropdown:hover .dropdown-content {
+        display: block;
+    }
+</style>

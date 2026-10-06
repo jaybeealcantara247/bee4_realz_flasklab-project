@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Home Page - Lab Exercise</title>
+    <style>
+        body {
+            background-image: url("{{ url_for('static', filename='background.jpg') }}");
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-position: center;
+            font-family: 'Times New Roman', Times, serif, sans-serif;
+            margin: 0;
+        }
+        .content-box {
+            margin: 20px;
+            background-color: rgba(255, 255, 255, 0.85);
+            padding: 20px;
+            border-radius: 8px;
+        }
+    </style>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+    {% include 'navbar.html' %}
+
+    <div class="content-box">
+        <h1>Welcome to My Flask Web Application</h1>
+        <p>This is the main hub for my Computer Engineering laboratory exercises.</p>
+        
+        <hr style="border: 0; height: 1px; background: #ccc; margin: 20px 0;">
+
+        <h3>Project Overview</h3>
+        <p>Use the navigation bar above to explore my profile, contact info, and tools.</p>
+    </div>
+
+</body>
+</html>

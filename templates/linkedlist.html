@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Linked List Manager</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            background-color: #fdfbf7;
+        }
+        .container {
+            max-width: 800px;
+            margin: 30px auto;
+            padding: 25px;
+            background: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+            border: 1px solid #e6dec9;
+        }
+        h1 {
+            color: #4a3b32;
+            margin-top: 0;
+        }
+        .control-row {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 15px;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        input[type="text"] {
+            padding: 9px 12px;
+            border: 1px solid #d4c5b9;
+            border-radius: 5px;
+            flex: 1;
+            min-width: 150px;
+            outline: none;
+        }
+        input[type="text"]:focus {
+            border-color: #8c6d53;
+        }
+        button {
+            padding: 9px 16px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            color: white;
+            transition: background 0.2s;
+        }
+        /* Brown Color Palette */
+        .btn-primary {
+            background-color: #8c6d53; /* Warm Brown */
+        }
+        .btn-primary:hover {
+            background-color: #70543f;
+        }
+        .btn-secondary {
+            background-color: #a68b74; /* Lighter Taupe Brown */
+        }
+        .btn-secondary:hover {
+            background-color: #8c6d53;
+        }
+        .btn-danger {
+            background-color: #8c3f3f; /* Muted Terracotta/Dark Brown-Red for deletion */
+        }
+        .btn-danger:hover {
+            background-color: #703131;
+        }
+        .message {
+            color: #5c4a3d;
+            background: #f4ede2;
+            padding: 12px;
+            border-radius: 5px;
+            border-left: 4px solid #8c6d53;
+            margin: 15px 0;
+        }
+        .list-display {
+            padding: 20px;
+            background: #faf6f0;
+            border: 1px solid #e6dec9;
+            border-radius: 6px;
+            margin-top: 20px;
+            font-size: 1.15em;
+            color: #4a3b32;
+            word-break: break-all;
+        }
+    </style>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+    {% include 'navbar.html' %}
+
+    <div class="container">
+        <h1>Linked List Manager</h1>
+
+        <!-- Insert Actions -->
+        <form method="POST" class="control-row">
+            <input type="text" name="value" placeholder="Enter node value..." required>
+            <button type="submit" name="action" value="insert_beginning" class="btn-primary">Insert at Beginning</button>
+            <button type="submit" name="action" value="insert_end" class="btn-primary">Insert at End</button>
+        </form>
+
+        <!-- Insert After Action -->
+        <form method="POST" class="control-row">
+            <input type="text" name="target_value" placeholder="Target node value" required>
+            <input type="text" name="value" placeholder="New value to insert" required>
+            <button type="submit" name="action" value="insert_after" class="btn-secondary">Insert After</button>
+        </form>
+
+        <!-- Removal Actions -->
+        <form method="POST" class="control-row">
+            <button type="submit" name="action" value="remove_beginning" class="btn-danger">Remove Beginning</button>
+            <button type="submit" name="action" value="remove_end" class="btn-danger">Remove End</button>
+            <input type="text" name="value" placeholder="Value to remove...">
+            <button type="submit" name="action" value="remove_value" class="btn-danger">Remove Specific</button>
+        </form>
+
+        <!-- Search Action -->
+        <form method="POST" class="control-row">
+            <input type="text" name="value" placeholder="Search value..." required>
+            <button type="submit" name="action" value="search" class="btn-secondary">Search Node</button>
+        </form>
+
+        <!-- Messages -->
+        {% if message %}
+            <div class="message">{{ message }}</div>
+        {% endif %}
+
+        {% if search_result %}
+            <div class="message" style="border-left-color: #6b8c53; background: #f0f4ec;">{{ search_result }}</div>
+        {% endif %}
+
+        <!-- Visual List Output -->
+        <h3>Current Linked List:</h3>
+        <div class="list-display">
+            {% for item in elements %}
+                <strong>{{ item }}</strong> {% if not loop.last %} &rarr; {% endif %}
+            {% else %}
+                <span style="color: #998b7e;">The list is currently empty.</span>
+            {% endfor %}
+        </div>
+    </div>
+
+</body>
+</html>
