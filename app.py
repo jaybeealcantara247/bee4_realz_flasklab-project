@@ -1,9 +1,14 @@
 from flask import Flask, render_template, request
 
+from stack import Stack
+
 from linklist_ans import LinkedList
+
+
 app = Flask(__name__)
 
 my_list = LinkedList()
+my_stack = Stack()
 
 @app.route('/')
 def index():
@@ -111,6 +116,38 @@ def linkedlist_ui():
 @app.route('/contact')
 def contact():
     return render_template('contact.html')
+
+@app.route('/works/stack', methods=['GET', 'POST'])
+def stack_page():
+    message = None
+    if request.method == 'POST':
+        action = request.form.get('action')
+        if action == 'push':
+            val = request.form.get('value')
+            if val:
+                my_stack.push(val)
+                message = f"Pushed '{val}' to stack."
+        elif action == 'pop':
+            popped = my_stack.pop()
+            if popped is not None:
+                message = f"Popped element: {popped}"
+            else:
+                message = "Stack is empty! Cannot pop."
+        elif action == 'peek':
+            top_val = my_stack.peek()
+            if top_val is not None:
+                message = f"Top element: {top_val}"
+            else:
+                message = "Stack is empty!"
+
+    elements = []
+    current = my_stack.top
+    while current:
+        elements.append(current.data)
+        current = current.next
+
+    return render_template('stack.html', elements=elements, message=message)
+
 
 if __name__ == "__main__":
     app.run(debug=True, port=5000)

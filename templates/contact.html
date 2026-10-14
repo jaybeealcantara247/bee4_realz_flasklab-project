@@ -1,22 +1,43 @@
+{% extends 'base.html' %}
 
+{% block title %}Contacts - BEE4_REALZ{% endblock %}
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Contact Me</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-</head>
-<body>
-    {% include 'navbar.html' %}
-    <div class="container">
-        <div style="color: white; margin-top: 20px; padding: 15px; background-color: #6f5836; border-left: 4px solid #423521;"></div>
-            <h1>Contact Information</h1>
-            <p><strong>Name:</strong> Jaybee L. Alcantara</p>
-            <p><strong>Email:</strong> jaybeealcantara247@gmail.com</p>
-            <p><strong>Phone:</strong> +63 912 065 1097</p>
-            <p><strong>GitHub:</strong> <a href="https://github.com/jaybeealcantara247" target="_blank">bee4_realzGithub</a></p>
-        </div>
-    </div>
-</body>
-</html>
+{% block content %}
+<div class="subpage-card grunge-contact">
+  <h2>GET IN TOUCH WITH BEE4_REALZ</h2>
+  <p class="contact-subtitle">DROP A LINE OR CONNECT THROUGH THE NETWORKS:</p>
+  
+  <ul class="contact-list">
+    <li>
+      <span class="symbol">✉</span> 
+      <strong>GMAIL:</strong> 
+      <a href="mailto:jaybeealcantara247@gmail.com" target="_blank">jaybeealcantara247@gmail.com</a>
+    </li>
+    <li>
+      <span class="symbol">☎</span> 
+      <strong>PHONE:</strong> 
+      <a href="tel:+639120651097">+63 912 065 1097</a>
+    </li>
+    <li>
+      <span class="symbol">ⓕ</span> 
+      <strong>FACEBOOK:</strong> 
+      <a href="https://www.facebook.com/jaybee.alcantara.14" target="_blank">facebook.com/jaybee.alcantara.14</a>
+    </li>
+    <li>
+      <span class="symbol">📸</span> 
+      <strong>INSTAGRAM:</strong> 
+      <a href="https://www.instagram.com/bee4_realz" target="_blank">@bee4_realz</a>
+    </li>
+    <li>
+      <span class="symbol">♪</span> 
+      <strong>TIKTOK:</strong> 
+      <a href="https://www.tiktok.com/@bee_srz?_t=8q8G5eZHReG&_r=1" target="_blank">@bee_srz</a>
+    </li>
+    <li>
+      <span class="symbol">💻</span> 
+      <strong>GITHUB:</strong> 
+      <a href="https://github.com/jaybeealcantara247" target="_blank">github.com/jaybeealcantara247</a>
+    </li>
+  </ul>
+</div>
+{% endblock %}

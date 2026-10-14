@@ -1,23 +1,24 @@
+{% extends 'base.html' %}
 
+{% block title %}Works - BEE4_REALZ{% endblock %}
 
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Convert to Uppercase</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-</head>
-<body>
-    {% include 'navbar.html' %}
-    <h1>Convert String to Uppercase</h1>
+{% block content %}
+<div class="subpage-card grunge-profile">
+  <h2>CONVERT STRING TO UPPERCASE</h2>
+  
+  <form method="POST" style="margin-top: 20px;">
+    <div style="margin-bottom: 15px;">
+      <label for="inputString" style="display: block; color: #999; margin-bottom: 5px; font-weight: bold;">ENTER A STRING:</label>
+      <input type="text" id="inputString" name="inputString" required style="padding: 10px; width: 100%; background: rgba(255, 255, 255, 0.1); border: 1px solid #444; color: #fff; border-radius: 5px;">
+    </div>
+    <button type="submit" class="pill-btn" style="width: 100%;">Convert</button>
+  </form>
 
-    <form action="/works" method="post">
-        <label for="inputString">Enter a string:</label>
-        <input type="text" id="inputString" name="inputString">
-        <input type="submit" value="Convert">
-    </form>
-
-    {% if result %}
-    <p>Converted string: {{ result }}</p>
-    {% endif %}
-</body>
-</html>
+  {% if result is not none %}
+    <div class="motto-box" style="margin-top: 25px;">
+      <span class="motto-title">RESULT:</span>
+      <p class="motto-text">{{ result }}</p>
+    </div>
+  {% endif %}
+</div>
+{% endblock %}

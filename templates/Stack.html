@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+{% block title %}Stack - BEE4_REALZ{% endblock %}
+
+{% block content %}
+<div class="subpage-card grunge-profile">
+  <h2>// STACK OPERATIONS_</h2>
+  
+  {% if message %}
+    <div style="background: rgba(255, 204, 0, 0.1); border-left: 4px solid #ffcc00; padding: 10px 15px; margin-bottom: 20px; font-family: 'Courier New', Courier, monospace; color: #ffcc00;">
+      {{ message }}
+    </div>
+  {% endif %}
+
+  <form method="POST" style="margin-top: 20px;">
+    <div style="margin-bottom: 15px;">
+      <input type="text" name="value" placeholder="Enter value to push" style="padding: 10px; width: 100%; background: rgba(255, 255, 255, 0.1); border: 1px solid #444; color: #fff; border-radius: 5px; font-family: 'Courier New', Courier, monospace;">
+    </div>
+    
+    <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+      <button type="submit" name="action" value="push" class="pill-btn" style="flex: 1; padding: 10px; font-size: 0.95rem;">Push</button>
+      <button type="submit" name="action" value="pop" class="pill-btn" style="flex: 1; padding: 10px; font-size: 0.95rem; background-color: #551111;">Pop</button>
+      <button type="submit" name="action" value="peek" class="pill-btn" style="flex: 1; padding: 10px; font-size: 0.95rem; background-color: #333355;">Peek</button>
+    </div>
+  </form>
+
+  <div class="motto-box" style="margin-top: 25px; text-align: left;">
+    <span class="motto-title" style="text-align: center;">STACK ELEMENTS (TOP → BOTTOM):</span>
+    {% if elements %}
+      <ul style="list-style: none; padding: 0; margin-top: 10px; font-family: 'Courier New', Courier, monospace;">
+        {% for item in elements %}
+          <li style="padding: 8px 12px; margin-bottom: 5px; background: rgba(255,255,255,0.05); border-left: 3px solid {% if loop.first %}#ffcc00{% else %}#fff{% endif %};">
+            {{ item }} {% if loop.first %}<span style="font-size: 0.75rem; color: #ffcc00; float: right;">(TOP)</span>{% endif %}
+          </li>
+        {% endfor %}
+      </ul>
+    {% else %}
+      <p style="text-align: center; color: #888; font-style: italic; margin-top: 10px;">Stack is empty</p>
+    {% endif %}
+  </div>
+</div>
+{% endblock %}

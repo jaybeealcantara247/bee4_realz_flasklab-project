@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{% block title %}BEE4_REALZ{% endblock %}</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap" rel="stylesheet">
+</head>
+<body class="{% block body_class %}{% endblock %}">
+
+  {% block navbar %}
+  <!-- Top Navigation Bar for Subpages -->
+  <header class="top-navbar">
+    <div class="nav-brand">BEE4_REALZ</div>
+    <nav class="nav-links">
+      <a href="/" class="nav-pill">Home</a>
+      <a href="/profile" class="nav-pill">Profile</a>
+      <a href="/contact" class="nav-pill">Contact</a>
+      
+      <!-- Works Dropdown Menu -->
+      <div class="dropdown">
+        <a href="/works" class="nav-pill dropdown-toggle">Works ▾</a>
+        <div class="dropdown-menu">
+          <a href="/works/circle">Circle</a>
+          <a href="/works/triangle">Triangle</a>
+          <a href="/works/touppercase">To Uppercase</a>
+          <a href="/works/linkedlist">Linked List</a>
+          <a href="/works/stack">Stack</a>
+        </div>
+      </div>
+    </nav>
+  </header>
+  {% endblock %}
+
+  <!-- Main Content Block (Crucial for rendering pages) -->
+  <main class="page-content">
+    {% block content %}{% endblock %}
+  </main>
+
+</body>
+</html>

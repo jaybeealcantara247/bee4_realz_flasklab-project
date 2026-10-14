@@ -1,24 +1,326 @@
-/* Global Brown Aesthetic & Background */
+/* ---------------- GLOBAL RESET & BACKGROUND ---------------- */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
 body {
-    font-family: 'Times New Roman', Times, serif, sans-serif;
-    margin: 0;
-    background: url('/static/background.jpg') no-repeat center center fixed;
-    background-size: cover;
-    color: #4a3b32;
+  min-height: 100vh;
+  width: 100vw;
+  background-image: url("bg_grunge.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  font-family: Arial, sans-serif;
+  color: #000;
 }
 
-/* Reusable Content Box for all pages */
-.container {
-    max-width: 800px;
-    margin: 30px auto;
-    padding: 25px;
-    background: rgba(255, 255, 255, 0.95); /* Semi-transparent white card */
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    border: 1px solid #e6dec9;
+/* ---------------- HOME PAGE STYLES ---------------- */
+body.home-body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
 }
 
-h1 {
-    color: #4a3b32;
-    margin-top: 0;
+.glass-card {
+  background: rgba(255, 255, 255, 0.45);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  padding: 50px 60px;
+  border-radius: 30px;
+  text-align: center;
+  max-width: 650px;
+  width: 90%;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+}
+
+.hero-title {
+  font-family: 'Permanent Marker', cursive;
+  font-size: 3.2rem;
+  line-height: 1.2;
+  color: #000;
+  margin-bottom: 35px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.button-group {
+  display: flex;
+  justify-content: center;
+  gap: 18px;
+  flex-wrap: wrap;
+}
+
+.pill-btn {
+  background-color: #2b2b2b;
+  color: #ffffff;
+  padding: 14px 32px;
+  border-radius: 50px;
+  text-decoration: none;
+  font-size: 1.1rem;
+  font-weight: 600;
+  transition: all 0.2s ease-in-out;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  border: none;
+  cursor: pointer;
+}
+
+.pill-btn:hover {
+  background-color: #000000;
+  transform: translateY(-3px);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.5);
+}
+
+/* ---------------- TOP NAVBAR STYLES (SUBPAGES) ---------------- */
+.top-navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 40px;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(8px);
+  position: relative;
+  overflow: visible;
+  z-index: 100;
+}
+
+.nav-brand {
+  font-family: 'Permanent Marker', cursive;
+  font-size: 1.8rem;
+  color: #fff;
+}
+
+.nav-links {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+}
+
+.nav-pill {
+  background-color: rgba(255, 255, 255, 0.2);
+  color: #fff;
+  padding: 8px 20px;
+  border-radius: 30px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: background-color 0.2s ease;
+}
+
+.nav-pill:hover {
+  background-color: #ffffff;
+  color: #000000;
+}
+
+/* Subpage Content Container */
+.page-content {
+  padding: 40px 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.subpage-card {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(10px);
+  padding: 40px;
+  border-radius: 20px;
+  max-width: 800px;
+  width: 100%;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+}
+
+.subpage-card h2 {
+  font-family: 'Permanent Marker', cursive;
+  font-size: 2.5rem;
+  margin-bottom: 15px;
+}
+
+/* ---------------- GRUNGE CONTACT PAGE STYLES ---------------- */
+.grunge-contact {
+  font-family: 'Courier New', Courier, monospace;
+  background: rgba(15, 15, 15, 0.9);
+  color: #f0f0f0;
+  border: 2px dashed #444;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.9);
+  transform: rotate(-0.5deg);
+  max-width: 650px;
+}
+
+.grunge-contact h2 {
+  font-family: 'Permanent Marker', cursive;
+  color: #fff;
+  letter-spacing: 2px;
+  border-bottom: 2px solid #333;
+  padding-bottom: 10px;
+  font-size: 2.2rem;
+}
+
+.contact-subtitle {
+  font-size: 0.85rem;
+  color: #999;
+  margin-bottom: 25px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+}
+
+.contact-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.contact-list li {
+  margin: 14px 0;
+  padding: 12px 18px;
+  background: rgba(255, 255, 255, 0.04);
+  border-left: 4px solid #ffffff;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  transition: all 0.2s ease-in-out;
+}
+
+.contact-list li:hover {
+  background: rgba(255, 255, 255, 0.12);
+  transform: translateX(6px);
+  border-left-color: #ffcc00;
+}
+
+.contact-list .symbol {
+  font-size: 1.3rem;
+  width: 25px;
+  text-align: center;
+}
+
+.contact-list strong {
+  color: #b0b0b0;
+  width: 110px;
+  letter-spacing: 1px;
+  font-size: 0.95rem;
+}
+
+.contact-list a {
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.2s;
+  word-break: break-all;
+}
+
+.contact-list a:hover {
+  color: #ffcc00;
+  text-decoration: underline;
+}
+
+/* ---------------- GRUNGE PROFILE PAGE STYLES ---------------- */
+.grunge-profile {
+  font-family: 'Courier New', Courier, monospace;
+  background: rgba(15, 15, 15, 0.92);
+  color: #f0f0f0;
+  border: 2px dashed #444;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.9);
+  max-width: 700px;
+  width: 100%;
+}
+
+.grunge-profile h2 {
+  font-family: 'Permanent Marker', cursive;
+  color: #fff;
+  letter-spacing: 2px;
+  border-bottom: 2px solid #333;
+  padding-bottom: 12px;
+  margin-bottom: 25px;
+  font-size: 2.2rem;
+}
+
+.profile-info {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-bottom: 30px;
+}
+
+.info-row {
+  display: flex;
+  padding: 10px 15px;
+  background: rgba(255, 255, 255, 0.04);
+  border-left: 4px solid #ffffff;
+}
+
+.info-row .label {
+  color: #999;
+  width: 130px;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+.info-row .value {
+  color: #ffffff;
+  font-weight: 600;
+}
+
+.motto-box {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid #333;
+  padding: 20px;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.motto-title {
+  display: block;
+  font-size: 0.8rem;
+  color: #888;
+  letter-spacing: 2px;
+  margin-bottom: 8px;
+}
+
+.motto-text {
+  font-style: italic;
+  font-size: 1.2rem;
+  color: #ffcc00;
+  letter-spacing: 1px;
+}
+
+/* ---------------- DROPDOWN NAVBAR STYLES ---------------- */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  right: 0;
+  background-color: rgba(15, 15, 15, 0.95);
+  backdrop-filter: blur(10px);
+  min-width: 180px;
+  box-shadow: 0px 10px 25px rgba(0,0,0,0.7);
+  border-radius: 12px;
+  border: 1px solid #333;
+  z-index: 1000;
+  overflow: hidden;
+  margin-top: 8px;
+}
+
+.dropdown-menu a {
+  color: #fff;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  font-size: 0.95rem;
+  font-family: 'Courier New', Courier, monospace;
+  transition: background 0.2s, color 0.2s;
+}
+
+.dropdown-menu a:hover {
+  background-color: #ffffff;
+  color: #000000;
+}
+
+/* Show dropdown on hover */
+.dropdown:hover .dropdown-menu {
+  display: block;
 }
